@@ -1,1 +1,1 @@
-# Bank management Software system
+# Bank management software system
