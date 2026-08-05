@@ -16,10 +16,10 @@ public class Customer implements CustomerBank{
     }
 
     public void getCustomerProfile(){
-        String printInfo = "%s %s Profile: \n " +
-                "Bank: %s, \n " +
-                "Credit card number: %d, \n " +
-                "Money in the bank: %d";
+        String printInfo = "*%s %s's Profile: \n" +
+                "*Bank: %s, \n" +
+                "*Credit card number: %d, \n" +
+                "*Money in the bank: %d \n";
         String customerInfo = String.format(printInfo, firstName, lastName, bankName, creditCardNum, moneyAmount);
         System.out.println(customerInfo);
     }
@@ -49,6 +49,7 @@ public class Customer implements CustomerBank{
         this.lastName = lastName;
     }
 
+    @Override
     public String getBankName() {
         return bankName;
     }

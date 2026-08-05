@@ -28,6 +28,7 @@ public class CompanyCustomer implements CustomerBank {
         this.companyName = companyName;
     }
 
+    @Override
     public String getBankName() {
         return bankName;
     }
