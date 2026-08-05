@@ -14,7 +14,7 @@ An object-oriented Java application modeling a banking system with hierarchical 
 
 ```java
 // Creating a company customer assigned to Bank Leomi.
-CustomerBank hbo = new CompanyCustomer(320, "HBO", "Bank Leomi", 10000);
+CustomerBank HBO = new CompanyCustomer(320, "HBO", "Bank Leomi", 10000);
 
 // Validating whether the bank can accept this type of customer.
 // (Will trigger a validation error if the bank does not support company customers)
