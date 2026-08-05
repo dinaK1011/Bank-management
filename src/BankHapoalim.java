@@ -7,4 +7,11 @@ public class BankHapoalim extends BankIsrael{
                 "Bank Hapoalim",
                 19700);
     }
+
+    @Override
+    public int calculateCustomerMoney(){
+        int totalCustomerMoney = sumCustomerMoney();
+        setAmountOfRevenue(sumCustomerMoney() + totalCustomerMoney);
+        return getAmountOfRevenue();
+    }
 }

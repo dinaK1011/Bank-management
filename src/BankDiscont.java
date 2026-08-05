@@ -7,4 +7,16 @@ public class BankDiscont extends BankIsrael{
                 "Bank Discont",
                 10000);
     }
+
+    @Override
+    public boolean acceptsCompanies() {
+        return true;
+    }
+
+    @Override
+    public int calculateCustomerMoney(){
+        int totalCustomerMoney = sumCustomerMoney();
+        setAmountOfRevenue(totalCustomerMoney);
+        return getAmountOfRevenue();
+    }
 }

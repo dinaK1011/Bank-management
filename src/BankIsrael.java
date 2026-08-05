@@ -13,6 +13,24 @@ abstract public class BankIsrael {
         this.numOfEmployees = numOfEmployees;
         this.bankName = bankName;
         this.amountOfRevenue = amountOfRevenue;
+
+    }
+
+    public boolean acceptsCompanies() {
+        return false;
+    }
+
+    public boolean validateCustomers() {
+        if(bankCustomerList == null){
+            return true;
+        }
+        for(CustomerBank customer : bankCustomerList) {
+            if(customer instanceof CompanyCustomer && !acceptsCompanies()) {
+                System.out.println("Error: " + bankName + " cannot accept Company Customers \n");
+                return false;
+            }
+        }
+        return true;
     }
 
     public void takePayment(CustomerBank customer, int payment){
@@ -49,12 +67,38 @@ abstract public class BankIsrael {
 
     public void increaseRevenue(int revenueToAdd){
         this.amountOfRevenue += revenueToAdd;
-
     }
 
     public int increaseExpenses(int expensesToIncrease){
         this.amountOfExpenses += expensesToIncrease;
         return expensesToIncrease;
+    }
+
+    public int calculateCustomerMoney(){
+
+        return sumCustomerMoney();
+    }
+
+    public int sumCustomerMoney(){
+        int currentMoney = 0;
+        for(CustomerBank customer : bankCustomerList){
+            if(customer != null) {
+                currentMoney += customer.getMoneyAmount();
+            }
+        }
+        return currentMoney;
+    }
+
+    public void printBankCalculationMoney(){
+        int before = getAmountOfRevenue();
+        int customersTotal = sumCustomerMoney();
+        int after = calculateCustomerMoney();
+        String printInfo = "*%s Calculation Summary: \n" +
+                "*Revenue before: %d, \n" +
+                "*Total Customers Money: %d, \n" +
+                "*Revenue after: %d \n";
+        String bankInfo = String.format(printInfo, getBankName(), before, customersTotal, after);
+        System.out.println(bankInfo);
     }
 
     public CustomerBank[] getBankCustomerList() {
@@ -63,6 +107,7 @@ abstract public class BankIsrael {
 
     public void setBankCustomerList(CustomerBank[] bankCustomerList) {
         this.bankCustomerList = bankCustomerList;
+        validateCustomers();
     }
 
     public int getAmountOfExpenses() {

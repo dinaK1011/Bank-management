@@ -6,5 +6,12 @@ public class BankLeomi extends BankIsrael{
                 16,
                 "Bank Leomi",
                 220000);
+
+    }
+    @Override
+    public int calculateCustomerMoney(){
+        int totalCustomerMoney = sumCustomerMoney();
+        setAmountOfRevenue(sumCustomerMoney() - totalCustomerMoney);
+        return getAmountOfRevenue();
     }
 }

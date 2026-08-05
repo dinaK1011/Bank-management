@@ -15,6 +15,11 @@ public class Customer implements CustomerBank{
         this.moneyAmount = moneyAmount;
     }
 
+    public void getPayment(int salary){
+        this.moneyAmount += salary;
+        System.out.println("Salary of " + salary + " transferred successfully. \n");
+    }
+
     public void getCustomerProfile(){
         String printInfo = "*%s %s's Profile: \n" +
                 "*Bank: %s, \n" +
